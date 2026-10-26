@@ -1,14 +1,21 @@
-setInterval(() => {
-    d = new Date();
-    hTime = d.getHours();
-    mTime = d.getMinutes();
-    sTime = d.getSeconds();
-    hRotation = 30 * hTime + mTime/2 ;
-    mRotation = 6 * mTime;
-    sRotation = 6 * sTime;
+const hour = document.getElementById("hour");
+const minute = document.getElementById("minute");
+const second = document.getElementById("second");
+
+function updateClock() {
+    const d = new Date();
+    const h = d.getHours() % 12;
+    const m = d.getMinutes();
+    const s = d.getSeconds();
+
+    const hRotation = 30 * h + m / 2;
+    const mRotation = 6 * m + s / 10;
+    const sRotation = 6 * s;
 
     hour.style.transform = `rotate(${hRotation}deg)`;
     minute.style.transform = `rotate(${mRotation}deg)`;
     second.style.transform = `rotate(${sRotation}deg)`;
+}
 
-}, 1000);
+updateClock();                
+setInterval(updateClock, 1000);
