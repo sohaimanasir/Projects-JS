@@ -6,7 +6,7 @@ This repository contains projects I'm building to strengthen my understanding of
 
 - **[Musify](https://musify-music-streaming-site.vercel.app/)**: A music streaming website.
 - **[Calculator](https://calculator-projects-js.vercel.app/)**: A calculator with basic arithmetic operations and keyboard support.
-- **Analog Clock**: Currently in development.
+- **[Calculator](https://projects-js-analog-clock.vercel.app/)**: Currently in development.
 
 ## Goal
 
