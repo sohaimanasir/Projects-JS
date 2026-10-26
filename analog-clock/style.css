@@ -38,7 +38,6 @@ body {
     border-radius: 10px;
     opacity: 0.8;
 }
-
-#hour::after   { width: max(4px, 1.5%); height: 22%; }
-#minute::after { width: max(3px, 1.2%); height: 30%; }
-#second::after { width: max(2px, 0.5%); height: 35%; background-color: red; }
+#hour::after   { width: max(4px, 1.4%); height: 17%; }
+#minute::after { width: max(3px, 1.1%); height: 26%; }
+#second::after { width: max(2px, 0.5%); height: 32%; background-color: red; }
