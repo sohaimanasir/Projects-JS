@@ -16,32 +16,29 @@ body {
 }
 
 /* ====== HOUR, MINUTE, SECOND ====== */
+/* Each hand wrapper covers the whole clock; it rotates around the exact center */
 #hour,
 #minute,
 #second {
     position: absolute;
-    bottom: 50%;            
+    inset: 0;
+    /* transform-origin defaults to 50% 50%, which is what we want */
+}
+
+/* The visible hand */
+#hour::after,
+#minute::after,
+#second::after {
+    content: "";
+    position: absolute;
     left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%);
     background-color: black;
     border-radius: 10px;
-    transform-origin: bottom center;
     opacity: 0.8;
 }
 
-#hour {
-    width: 1.5%;
-    height: 22%;
-    margin-left: -0.75%;      
-}
-
-#minute {
-    width: 1.2%;
-    height: 30%;
-    margin-left: -0.6%;
-}
-
-#second {
-    width: 0.5%;
-    height: 35%;
-    margin-left: -0.25%;
-}
+#hour::after   { width: max(4px, 1.5%); height: 22%; }
+#minute::after { width: max(3px, 1.2%); height: 30%; }
+#second::after { width: max(2px, 0.5%); height: 35%; background-color: red; }
