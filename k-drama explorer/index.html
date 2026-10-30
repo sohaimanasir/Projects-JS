@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Drama Explorer</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap">
+</head>
+
+<body>
+
+    <!-- ======== HEADER ==========-->
+    <!-- Nav -->
+
+    <header>
+
+        <nav>
+            <h3>K-Drama Explorer</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#browse">Explore</a></li>
+                <li><a href="#footer">About</a></li>
+            </ul>
+
+            <img src="assets/logo.png" alt="logo" width="40px">
+        </nav>
+
+    </header>
+
+    <!-- ========= MAIN SECTION =========== -->
+    <main>
+        <!-- hero section -->
+
+        <section id="hero">
+
+            <img src="assets/hero_banner.jpeg" alt="banner" width="100%" height="400px">
+
+            <div class="hero">
+                <h1>Find your next favorite Korean Drama</h1>
+                <h3>From heart-fluttering romances to edge-of-your-seat thrillers.</h3>
+                <button class="explore" onclick="location.href='#browse'">Explore ↓</button>
+            </div>
+
+        </section>
+
+        <!-- Explore Dramas -->
+
+        <section id="browse">
+            <h2>Explore K-Dramas</h2>
+            <input type="search" name="dramas" id="searchDramas" placeholder="Search by drama title">
+            <div class="genre-filter">
+                <label for="genre">Filter by genre:</label>
+
+                <select name="genre" id="genre">
+                    <option value="All">All Genres</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Action">Action</option>
+                    <option value="Fantasy">Fantasy</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="dramas">
+            <h2>Discover Dramas</h2>
+            <div class="drama-grid">
+                <!-- dynamic cards -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========= FOOTER ========= -->
+
+    <footer id="footer">
+        <p>K-Drama Explorer © 2026</p>
+    </footer>
+
+    <!-- ======== Modal ========= -->
+
+    <div class="modal" id="dramaModal">
+        <div class="modal-content">
+            <button class="close">&times;</button>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- script tag -->
+    <script src="dramas.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

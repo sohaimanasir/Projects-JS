@@ -1,0 +1,255 @@
+/* ===== Theme ===== */
+:root {
+    --bg: #0B0B0F;
+    --surface: #2A0F16;
+    --primary: #5B1A2A;
+    --accent: #B08D7A;
+    --text: #F2E7E1;
+    --muted: rgba(242, 231, 225, .62);
+    --line: rgba(176, 141, 122, .22);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+}
+
+/* ===== Global ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    background-image: radial-gradient(900px 400px at 85% 0%, rgba(91, 26, 42, .35), transparent 70%);
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+
+/* ===== Header ===== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 14px 5%;
+    background: rgba(11, 11, 15, .78);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+}
+
+nav { display: flex; align-items: center; justify-content: space-between; }
+nav h3 { font-size: 22px; font-weight: 600; letter-spacing: .01em; }
+nav img { border-radius: 50%; }
+
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+nav a:hover { color: var(--accent); }
+
+/* ===== Hero ===== */
+#hero { position: relative; color: var(--text); }
+#hero img { display: block; width: 100%; height: 460px; object-fit: cover; }
+
+#hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(11, 11, 15, .92) 5%, rgba(42, 15, 22, .55) 55%, rgba(11, 11, 15, .25)),
+        linear-gradient(0deg, var(--bg), transparent 35%);
+}
+
+.hero {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 620px;
+}
+
+.hero h1 { font-size: clamp(34px, 5.5vw, 60px); line-height: 1.05; letter-spacing: -.02em; }
+.hero h3 { font-family: var(--sans); font-size: 16px; color: var(--muted); max-width: 460px; }
+
+.explore {
+    width: fit-content;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--primary);
+    color: var(--text);
+    font: 500 14px var(--sans);
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.explore:hover { background: var(--accent); color: var(--bg); }
+
+/* ===== Browse ===== */
+#browse {
+    padding: 50px 5% 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+#browse h2 { font-size: 30px; width: 100%; }
+
+#searchDramas {
+    flex: 1 1 300px;
+    max-width: 420px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(42, 15, 22, .6);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    transition: border-color .2s;
+}
+#searchDramas::placeholder { color: var(--muted); }
+#searchDramas:focus, #genre:focus { border-color: var(--accent); }
+
+.genre-filter { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 14px; }
+
+#genre {
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(42, 15, 22, .6);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    cursor: pointer;
+}
+#genre option { background: var(--surface); }
+
+/* ===== Drama Grid ===== */
+#dramas { padding: 20px 5% 80px; }
+#dramas h2 { font-size: 22px; color: var(--accent); font-style: italic; }
+
+.drama-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 28px;
+}
+
+.drama-card { cursor: pointer; }
+
+.drama-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    transition: transform .35s, border-color .35s, box-shadow .35s;
+}
+.drama-card:hover img {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .55);
+}
+
+.drama-card h3 { font-size: 19px; line-height: 1.25; margin-top: 14px; }
+.drama-card p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 60px 0; }
+
+/* ===== Footer ===== */
+footer {
+    padding: 28px 5%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(11, 11, 15, .8);
+    backdrop-filter: blur(8px);
+    color: var(--text);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    margin: 5vh auto;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: linear-gradient(160deg, var(--surface), #150a0e);
+    animation: pop .3s ease;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(11, 11, 15, .6);
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.close:hover { background: var(--accent); color: var(--bg); }
+
+.modal-drama-info { display: grid; grid-template-columns: 280px 1fr; }
+.modal-drama-info > img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; }
+
+.drama-details { padding: 38px 36px; }
+.drama-details h2 { font-size: 34px; line-height: 1.1; padding-right: 40px; }
+.drama-details h2 + p { color: var(--accent); font-size: 16px; margin: 4px 0 18px; }
+.drama-details p { color: var(--muted); font-size: 14px; }
+.drama-details p strong { color: var(--text); font-weight: 500; }
+
+
+.drama-details h3 {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 24px 0 10px;
+}
+.drama-details ul { list-style: none; display: grid; gap: 6px; font-size: 14px; }
+.drama-details li span { color: var(--muted); }
+.drama-details h3 + p { color: var(--text); opacity: .85; }
+
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
+    nav ul { display: none; }
+    #hero img { height: 380px; }
+    .modal-drama-info { grid-template-columns: 1fr; }
+    .modal-drama-info > img { min-height: 0; height: 280px; }
+    .drama-details { padding: 26px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
