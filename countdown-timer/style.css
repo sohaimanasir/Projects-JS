@@ -80,8 +80,9 @@ input[type="date"] {
 
 .btn-row {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
-    flex-wrap: wrap; justify-content: center;
 }
 
 button {
@@ -179,4 +180,20 @@ button:focus-visible {
 
 @media (max-width: 420px) {
     .board { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* flip animation */
+.tile { perspective: 400px; }
+
+.num { display: inline-block; }
+
+.flip { animation: flip .4s ease-out; }
+
+@keyframes flip {
+    from { transform: rotateX(-90deg); opacity: .2; }
+    to   { transform: rotateX(0);      opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flip { animation: none; }
 }

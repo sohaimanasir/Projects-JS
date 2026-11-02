@@ -2,7 +2,7 @@
 
 const submitBtn = document.getElementById("submitBtn");
 const stopBtn = document.getElementById("stopBtn");
-const reseBtn = document.getElementById("resetBtn");
+const resetBtn = document.getElementById("resetBtn");
 const countdown = document.getElementById("countdown");
 const error = document.getElementById("error");
 const days = document.getElementById("days");
@@ -20,11 +20,21 @@ function tomorrowStr() {
 }
 countdown.min = tomorrowStr();
 
+// update a number and flip it only when it changes
+function setValue(el, value) {
+    value = String(value);
+    if (el.textContent === value) return;
+    el.textContent = value;
+    el.classList.remove("flip");
+    void el.offsetWidth; // restarts the animation
+    el.classList.add("flip");
+}
+
 function resetDisplay() {
-    days.textContent = 0;
-    hours.textContent = "00";
-    minutes.textContent = "00";
-    seconds.textContent = "00";
+    setValue(days, 0);
+    setValue(hours, "00");
+    setValue(minutes, "00");
+    setValue(seconds, "00");
 }
 
 function updateCountdown() {
@@ -42,10 +52,10 @@ function updateCountdown() {
     const oneHour = oneMin * 60;
     const oneDay = oneHour * 24;
 
-    days.textContent = Math.floor(diff / oneDay);
-    hours.textContent = pad(Math.floor((diff % oneDay) / oneHour));
-    minutes.textContent = pad(Math.floor((diff % oneHour) / oneMin));
-    seconds.textContent = pad(Math.floor((diff % oneMin) / oneSec));
+    setValue(days, Math.floor(diff / oneDay));
+    setValue(hours, pad(Math.floor((diff % oneDay) / oneHour)));
+    setValue(minutes, pad(Math.floor((diff % oneHour) / oneMin)));
+    setValue(seconds, pad(Math.floor((diff % oneMin) / oneSec)));
 }
 
 let countdownInterval;
@@ -86,4 +96,4 @@ submitBtn.addEventListener("click", () => {
 });
 
 stopBtn.addEventListener("click", stopCountdown);
-reseBtn.addEventListener('click' , resetCountdown)
+resetBtn.addEventListener("click", resetCountdown);
