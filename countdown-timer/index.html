@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Special+Elite&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="frame">
+        <h1 class="title">The Countdown</h1>
+        <p class="tagline">Set a date. Watch the hours go by.</p>
+
+        <div class="controls">
+            <label for="countdown">Enter any future date to start countdown</label>
+            <input type="date" id="countdown">
+            <div class="btn-row">
+                <button id="submitBtn" type="button">Start</button>
+                <button id="stopBtn" type="button" class="secondary" disabled>Stop</button>
+                <button id="resetBtn" type="button" class="secondary">Reset</button>
+
+            </div>
+            <p class="error" id="error" role="alert"></p>
+        </div>
+
+        <div class="board">
+            <div class="tile">
+                <span class="num" id="days">0</span>
+                <span class="unit">Days</span>
+            </div>
+            <div class="tile">
+                <span class="num" id="hours">0</span>
+                <span class="unit">Hours</span>
+            </div>
+            <div class="tile">
+                <span class="num" id="minutes">0</span>
+                <span class="unit">Minutes</span>
+            </div>
+            <div class="tile">
+                <span class="num" id="seconds">0</span>
+                <span class="unit">Seconds</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
